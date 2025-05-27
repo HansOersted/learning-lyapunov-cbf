@@ -131,7 +131,7 @@ for epoch in range(num_epochs):
     L_out -= learning_rate * dL_out / scale
     b_out -= learning_rate * db_out / scale
 
-    loss_history[epoch] = total_loss_clean.item()
+    loss_history[epoch] = float(total_loss_clean)
     constraint_history[epoch] = constraint.item()
     A_history.append(A)
     L_history.append(L_pred)
