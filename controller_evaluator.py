@@ -14,6 +14,19 @@ if not os.path.exists(NPZ_FILE):
 else:
     print(f"📁 Found training data file: {NPZ_FILE}")
 
+    OUTPUT_FILES = [
+        'constraint_first_epoch.png',
+        'constraint_last_epoch.png',
+        'lyapunov_surface.png',
+        'loss_history.png',
+        'final_model_weights.npz'
+    ]
+
+    for fname in OUTPUT_FILES:
+        if os.path.exists(fname):
+            os.remove(fname)
+            print(f"🗑️  Removed old file: {fname}")
+
 for trial in range(1, TRIAL_TIMES + 1):
     print(f"\n🔁 Trial {trial}/{TRIAL_TIMES} for stability_proof.py")
 
