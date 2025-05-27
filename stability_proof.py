@@ -1,6 +1,13 @@
-import numpy as np
-import matplotlib.pyplot as plt
 import warnings
+import matplotlib
+import matplotlib.pyplot as plt
+
+warnings.filterwarnings("ignore", category=matplotlib.MatplotlibDeprecationWarning)
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=UserWarning)
+
+import numpy as np
+
 
 data = np.load('training_data_uav.npz')
 e = data['e']
@@ -11,8 +18,8 @@ dde_interested = de[:, 1]
 length = len(e)
 
 # important parameters
-lambda_val = 0.0009
-num_epochs = 100
+lambda_val = 0.1
+num_epochs = 600
 learning_rate = 1e-2
 gamma = 1e-4
 
@@ -132,37 +139,37 @@ for epoch in range(num_epochs):
     np.savez('final_model_weights.npz', A=A_history[-1])
 
     if epoch % 50 == 0:
-        print(f"Epoch {epoch+1}/{num_epochs} - Loss: {total_loss_clean.item():.4f}")
-        print("L_pred =\n", L_pred)
-        print("A =\n", A)
-        print("Eigenvalues of A:", np.linalg.eigvals(A))
+        print(f"Epoch {epoch+1}/{num_epochs} - Loss: {total_loss_clean.item():.4f}", flush=True)
+        print("L_pred =\n", L_pred, flush=True)
+        print("A =\n", A, flush=True)
+        print("Eigenvalues of A:", np.linalg.eigvals(A), flush=True)
 
-plt.figure()
+fig = plt.figure()
 plt.plot(loss_history, linewidth=2)
 plt.xlabel('Epoch')
 plt.ylabel('Loss')
 plt.title('Training Loss (Clean)')
 plt.grid()
 plt.savefig("loss_history.png")
-plt.close()
+plt.close(fig)
 
-plt.figure()
+fig = plt.figure()
 plt.plot(constraint_first_epoch, linewidth=2)
 plt.xlabel('Training Sample Index')
 plt.ylabel('Constraint Value')
 plt.title('Constraints in the First Epoch (Clean)')
 plt.grid()
 plt.savefig("constraint_first_epoch.png")
-plt.close()
+plt.close(fig)
 
-plt.figure()
+fig = plt.figure()
 plt.plot(constraint_last_epoch, linewidth=2)
 plt.xlabel('Training Sample Index')
 plt.ylabel('Constraint Value')
 plt.title('Constraints in the Last Epoch (Clean)')
 plt.grid()
 plt.savefig("constraint_last_epoch.png")
-plt.close()
+plt.close(fig)
 
 e, de = np.meshgrid(np.arange(-20, 21, 1), np.arange(-20, 21, 1))
 Lyap = np.zeros_like(e, dtype=float)
@@ -181,5 +188,5 @@ ax.set_ylabel('de')
 ax.set_zlabel('V(e, de)')
 ax.set_title(f'Lyapunov Function (lambda = {lambda_val})')
 plt.savefig("lyapunov_surface.png")
-plt.close()
+plt.close(fig)
 
