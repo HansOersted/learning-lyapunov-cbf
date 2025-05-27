@@ -36,9 +36,9 @@ These collected tracking errors are for the training purpose in this repository.
 | File                                  | Description                                                                                            |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `controller_evaluator.py`             | Automatically runs training with retries if warnings occur; removes old result files before each trial |
-| `stability_proof.py`                  | Core script that trains a positive-definite Lyapunov function\( V(x) = x^\top A x \)                   |
-| `training_data_uav.npz`               | Pre-collected trajectory data from Simulink (contains ($e\$, $\dot{e}\$, $\ddot{e}\$)                  |
-| `final_model_weights.npz` [output]    | Output file containing the learned matrix$\( A \)$                                                     |
+| `stability_proof.py`                  | Core script that trains a positive-definite Lyapunov function $\( V(x) = x^\top A x \)\$               |
+| `training_data_uav.npz`               | Pre-collected trajectory data from Simulink (contains $\(e\$, $\dot{e}\$, $\ddot{e})\$                 |
+| `final_model_weights.npz` [output]    | Output file containing the learned matrix $\( A \)$                                                    |
 | `loss_history.png` [output]           | Training loss plot                                                                                     |
 | `constraint_first_epoch.png` [output] | Constraint violations at first epoch                                                                   |
 | `constraint_last_epoch.png` [output]  | Constraint violations at final epoch                                                                   |
