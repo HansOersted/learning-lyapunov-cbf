@@ -16,6 +16,7 @@ The system under consideration is a UAV stabilized by a closed-loop PD controlle
 0 &  1 \\
 -1 & -2
 \end{bmatrix} x
+```
 
 Simulink is used to simulate the system and export tracking errors $e\$, $e = r - x\$:
 
