@@ -8,14 +8,12 @@ With the collected date, a Lyapunov function is trained using a Python script ba
 
 ## 🧠 System Model
 
-The system under consideration is a damped second-order linear system:
-
-The system under consideration is a damped second-order linear system:
+The system under consideration is a UAV stabilized by a closed-loop PD controller:
 
 ```math
 \dot{x} =
 \begin{bmatrix}
- 0 &  1 \\
+0 &  1 \\
 -1 & -2
 \end{bmatrix} x
 ```
@@ -25,6 +23,8 @@ e(t), \\
 \dot{e}(t), \\
 \ddot{e}(t)
 ```
+
+These collected tracking errors are for the training purpose in this repository.
 
 ---
 
