@@ -138,8 +138,8 @@ for epoch in range(num_epochs):
 
     np.savez('final_model_weights.npz', A=A_history[-1])
 
-    if epoch % 50 == 0:
-        print(f"Epoch {epoch+1}/{num_epochs} - Loss: {total_loss_clean.item():.4f}", flush=True)
+    if (epoch + 1) % 50 == 0:
+        print(f"Epoch {epoch+1}/{num_epochs} - Loss: {float(total_loss_clean):.4f}", flush=True)
         print("L_pred =\n", L_pred, flush=True)
         print("A =\n", A, flush=True)
         print("Eigenvalues of A:", np.linalg.eigvals(A), flush=True)
