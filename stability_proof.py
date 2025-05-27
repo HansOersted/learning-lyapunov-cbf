@@ -23,7 +23,6 @@ num_epochs = 600
 learning_rate = 1e-2
 gamma = 1e-4
 
-n1 = 1
 dimension = 2
 h = 32  # hidden layer width
 
@@ -57,73 +56,72 @@ for epoch in range(num_epochs):
     dL_out = np.zeros_like(L_out)
     db_out = np.zeros_like(b_out)
 
-    for i in range(n1):
-        for t in range(length):
-            de = E_interested[t, :].reshape(-1, 1)
-            dde = dE_interested[t, :].reshape(-1, 1)
+    for t in range(length):
+        de = E_interested[t, :].reshape(-1, 1)
+        dde = dE_interested[t, :].reshape(-1, 1)
 
-            hidden1 = np.maximum(0, L1 @ de + b1)
-            hidden2 = np.maximum(0, L2 @ hidden1 + b2)
+        hidden1 = np.maximum(0, L1 @ de + b1)
+        hidden2 = np.maximum(0, L2 @ hidden1 + b2)
 
-            L_flat = L_out @ hidden2 + b_out
-            L_pred = np.zeros((dimension, dimension))
-            tril_indices = np.tril_indices(dimension)
-            L_pred[tril_indices] = L_flat.flatten()
-            diag_idx = np.diag_indices(dimension)
-            L_pred[diag_idx] = np.log(1 + np.exp(L_pred[diag_idx]))
+        L_flat = L_out @ hidden2 + b_out
+        L_pred = np.zeros((dimension, dimension))
+        tril_indices = np.tril_indices(dimension)
+        L_pred[tril_indices] = L_flat.flatten()
+        diag_idx = np.diag_indices(dimension)
+        L_pred[diag_idx] = np.log(1 + np.exp(L_pred[diag_idx]))
 
-            if np.isinf(L_pred).any():
-                warnings.warn("L_pred contains Inf values!")
-            if np.isnan(L_pred).any():
-                warnings.warn("L_pred contains NaN values!")
+        if np.isinf(L_pred).any():
+            warnings.warn("L_pred contains Inf values!")
+        if np.isnan(L_pred).any():
+            warnings.warn("L_pred contains NaN values!")
 
-            A = L_pred @ L_pred.T
+        A = L_pred @ L_pred.T
 
-            if np.isinf(A).any():
-                warnings.warn("A contains Inf values!")
-            if np.isnan(A).any():
-                warnings.warn("A contains NaN values!")
+        if np.isinf(A).any():
+            warnings.warn("A contains Inf values!")
+        if np.isnan(A).any():
+            warnings.warn("A contains NaN values!")
 
-            constraint = dde.T @ A @ de + de.T @ A @ dde + lambda_val * de.T @ A @ de + gamma
-            constraint_clean = constraint - gamma
+        constraint = dde.T @ A @ de + de.T @ A @ dde + lambda_val * de.T @ A @ de + gamma
+        constraint_clean = constraint - gamma
 
-            if epoch == 0:
-                constraint_first_epoch.append(constraint_clean.item())
-            if epoch == num_epochs - 1:
-                constraint_last_epoch.append(constraint_clean.item())
+        if epoch == 0:
+            constraint_first_epoch.append(constraint_clean.item())
+        if epoch == num_epochs - 1:
+            constraint_last_epoch.append(constraint_clean.item())
 
-            constraint_violation = max(0, constraint)
-            loss_clean = max(0, constraint_clean)
-            total_loss_clean += loss_clean
+        constraint_violation = max(0, constraint)
+        loss_clean = max(0, constraint_clean)
+        total_loss_clean += loss_clean
 
-            if constraint_violation > 0:
-                A1, B1 = dde.T, de
-                A2, B2 = de.T, dde
-                A3, B3 = de.T, de
+        if constraint_violation > 0:
+            A1, B1 = dde.T, de
+            A2, B2 = de.T, dde
+            A3, B3 = de.T, de
 
-                grad_constraint = (A1.T @ B1.T + B1 @ A1) @ L_pred \
-                                + (A2.T @ B2.T + B2 @ A2) @ L_pred \
-                                + lambda_val * (A3.T @ B3.T + B3 @ A3) @ L_pred
+            grad_constraint = (A1.T @ B1.T + B1 @ A1) @ L_pred \
+                            + (A2.T @ B2.T + B2 @ A2) @ L_pred \
+                            + lambda_val * (A3.T @ B3.T + B3 @ A3) @ L_pred
 
-                softplus_derivative = 1 / (1 + np.exp(-L_pred))
-                grad_constraint[diag_idx] *= softplus_derivative[diag_idx]
-            else:
-                grad_constraint = np.zeros_like(L_pred)
+            softplus_derivative = 1 / (1 + np.exp(-L_pred))
+            grad_constraint[diag_idx] *= softplus_derivative[diag_idx]
+        else:
+            grad_constraint = np.zeros_like(L_pred)
 
-            grad_L_flat = grad_constraint[tril_indices].reshape(-1, 1)
-            dL_out += grad_L_flat @ hidden2.T
-            db_out += grad_L_flat
+        grad_L_flat = grad_constraint[tril_indices].reshape(-1, 1)
+        dL_out += grad_L_flat @ hidden2.T
+        db_out += grad_L_flat
 
-            grad_hidden2 = (L_out.T @ grad_L_flat) * (hidden2 > 0)
-            dL2 += grad_hidden2 @ hidden1.T
-            db2 += grad_hidden2
+        grad_hidden2 = (L_out.T @ grad_L_flat) * (hidden2 > 0)
+        dL2 += grad_hidden2 @ hidden1.T
+        db2 += grad_hidden2
 
-            grad_hidden1 = (L2.T @ grad_hidden2) * (hidden1 > 0)
-            dL1 += grad_hidden1 @ de.T
-            db1 += grad_hidden1
+        grad_hidden1 = (L2.T @ grad_hidden2) * (hidden1 > 0)
+        dL1 += grad_hidden1 @ de.T
+        db1 += grad_hidden1
 
     # update the gradients
-    scale = n1 * length
+    scale = length
     L1 -= learning_rate * dL1 / scale
     b1 -= learning_rate * db1 / scale
     L2 -= learning_rate * dL2 / scale
