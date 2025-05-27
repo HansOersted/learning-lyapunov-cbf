@@ -10,8 +10,7 @@ With the collected date, a Lyapunov function is trained using a Python script ba
 
 The system under consideration is a UAV stabilized by a closed-loop PD controller:
 
-dx/dt = A x,  where A = [ [ 0, 1 ],
-               [ -1, -2 ] ]
+![System Model](system_model.png)
 
 Simulink is used to simulate the system and export tracking errors $e\$, $e = r - x\$:
 
