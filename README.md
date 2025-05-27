@@ -1,6 +1,7 @@
 # Learning Lyapunov Functions from Data
 
-This repository demonstrates how to learn a candidate Lyapunov function from trajectory data of a linear dynamical system. The system is simulated in Simulink, and the Lyapunov function is trained using a Python script based on a parameterized neural representation.
+This repository demonstrates how to learn a candidate Lyapunov function from trajectory data. The system adopts the UAV dynamics simulated in Simulink for the data collection.  
+With the collected date, a Lyapunov function is trained using a Python script based on a parameterized neural representation.
 
 ---
 
