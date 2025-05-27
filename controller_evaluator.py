@@ -28,21 +28,26 @@ else:
             print(f"🗑️  Removed old file: {fname}")
 
 for trial in range(1, TRIAL_TIMES + 1):
-    print(f"\n🔁 Trial {trial}/{TRIAL_TIMES} for stability_proof.py")
+    print(f"\n🔁 Trial {trial}/{TRIAL_TIMES} for {STABILITY_SCRIPT}")
 
-    result = subprocess.run(
+    process = subprocess.Popen(
         [sys.executable, STABILITY_SCRIPT],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
-        text=True,
-        env={**os.environ, "MPLBACKEND": "Agg"}  # for matplotlib
+        bufsize=1,
+        universal_newlines=True,
+        env={**os.environ, "MPLBACKEND": "Agg"}
     )
 
-    print(result.stdout)
+    for line in process.stdout:
+        print(line, end='')
 
-    if result.stderr:
-        print("⚠️  Warnings detected:")
-        print(result.stderr)
+    process.wait()
+    stderr_output = process.stderr.read()
+
+    if stderr_output.strip():
+        print("⚠️  Warnings or errors detected:")
+        print(stderr_output)
     else:
         print("✅ No warnings. Training succeeded.")
         break
