@@ -1,5 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import warnings
+from matplotlib import MatplotlibDeprecationWarning
+
+warnings.filterwarnings("ignore", category=MatplotlibDeprecationWarning, message=".*close_event.*")
+
 
 # load A from stability_proof output
 model_data = np.load('final_model_weights.npz')
