@@ -11,7 +11,7 @@ e_interested = data['interested_TrackingError']
 de_interested = data['interested_der_interested_TrackingError']
 dde_interested = data['der_der_interested_TrackingError']
 
-lambda_val = 0.0009
+lambda_val = 0.1
 
 # match training structure from stability_proof.py
 E_interested = np.column_stack((e_interested, de_interested))
