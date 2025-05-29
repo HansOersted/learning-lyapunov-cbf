@@ -6,10 +6,13 @@ model_data = np.load('final_model_weights.npz')
 A = model_data['A']
 
 # load training data from interested_section output
-data = np.load('interested_section_output.npz')
-e_interested = data['interested_TrackingError']
-de_interested = data['interested_der_interested_TrackingError']
-dde_interested = data['der_der_interested_TrackingError']
+# load training data from stability_proof
+data = np.load('training_data_uav.npz')
+e = data['e']
+de = data['de']
+e_interested = e[:, 0]
+de_interested = e[:, 1]
+dde_interested = de[:, 1]
 
 lambda_val = 0.1
 
