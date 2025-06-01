@@ -1,6 +1,10 @@
 import warnings
 import matplotlib
 import matplotlib.pyplot as plt
+import os
+
+if os.path.exists("loss_history.npy"):
+    os.remove("loss_history.npy")
 
 warnings.filterwarnings("ignore", category=matplotlib.MatplotlibDeprecationWarning)
 warnings.filterwarnings("ignore", category=DeprecationWarning)
