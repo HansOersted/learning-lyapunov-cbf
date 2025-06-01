@@ -1,8 +1,9 @@
 import numpy as np
 import os
 
-expected_ratio = 0.2 # Expected ratio of final loss to initial loss
-N_check = 10 # Number of initial points to check for strict monotonicity
+expected_ratio = 0.2  # Expected ratio of final loss to initial loss
+N_check = 10          # Number of initial points to check for strict monotonicity
+final_threshold = 8.0 # Maximum acceptable final loss
 
 # Load loss history
 if os.path.exists('loss_history.npy'):
@@ -22,13 +23,17 @@ satisfies_ratio = ratio <= expected_ratio
 check_N = min(N_check, len(loss_history))
 monotonic_decreasing = all(x > y for x, y in zip(loss_history[:check_N-1], loss_history[1:check_N]))
 
+# Condition 3: Final loss below absolute threshold
+satisfies_final_threshold = loss_history[-1] <= final_threshold
+
 # Output results
 print(f"Initial loss: {loss_history[0]:.6f}")
 print(f"Final loss:   {loss_history[-1]:.6f}")
 print(f"Final/Initial ratio: {ratio:.6f} (threshold: {expected_ratio})")
 print(f"Is strictly decreasing in first {check_N} points? {'Yes' if monotonic_decreasing else 'No'}")
+print(f"Is final loss below threshold {final_threshold}? {'Yes' if satisfies_final_threshold else 'No'}")
 
-if satisfies_ratio and monotonic_decreasing:
+if satisfies_ratio and monotonic_decreasing and satisfies_final_threshold:
     print("✅ Training judged successful.")
 else:
     print("❌ Training judged unsuccessful.")
