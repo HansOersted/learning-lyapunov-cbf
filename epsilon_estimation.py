@@ -43,4 +43,4 @@ plt.savefig('training_constraint_curve.png')
 plt.close()
 
 print("✅ Constraint plot saved as training_constraint_curve.png")
-print(f"🔍 Max constraint value: {max(constraint_values):.6f}")
+print(f"🔍 Max constraint value (raw): {max(constraint_values):.12f}")
