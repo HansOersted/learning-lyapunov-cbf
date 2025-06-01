@@ -19,7 +19,7 @@ length = len(e)
 
 # important parameters
 lambda_val = 0.1
-num_epochs = 600
+num_epochs = 100
 learning_rate = 1e-2
 gamma = 1e-4
 
@@ -188,3 +188,4 @@ ax.set_title(f'Lyapunov Function (lambda = {lambda_val})')
 plt.savefig("lyapunov_surface.png")
 plt.close(fig)
 
+np.save("loss_history.npy", loss_history)
