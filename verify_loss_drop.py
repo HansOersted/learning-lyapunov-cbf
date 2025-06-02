@@ -39,19 +39,19 @@ satisfies_final_threshold = loss_history[-1] <= final_threshold
 # print(f"Check indices: {check_indices}")
 # print(f"Selected losses: {selected_losses}")
 if loss_history[0] == 0:
-    print("⚠️ Initial loss is zero. Set ratio = 0.0 and treat as successful drop.")
+    print("Initial loss is zero. Set ratio = 0.0 and treat as successful drop.")
 else:
     print(f"Final/Initial ratio: {ratio:.6f} (threshold: {expected_ratio})")
 print(f"Is non-increasing over selected {check_N} points? {'Yes' if non_increasing else 'No'}")
 print(f"Is final loss below threshold {final_threshold}? {'Yes' if satisfies_final_threshold else 'No'}")
 
 if loss_history[0] == 0.0:
-    print("🎉 Converge at the beginning! So lucky!")
+    print("Converge at the beginning! So lucky!")
 
 if loss_history[-1] == 0.0:
-    print("🎉 Congratulations! Perfect training with 0.0 loss!")
+    print("Congratulations! Perfect training with 0.0 loss!")
 
 if satisfies_ratio and non_increasing and satisfies_final_threshold:
-    print("✅ Training judged successful.")
+    print("Training judged successful.")
 else:
-    print("❌ Training judged unsuccessful.")
+    print("Training judged unsuccessful.")

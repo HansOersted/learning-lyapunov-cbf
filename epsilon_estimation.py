@@ -42,11 +42,11 @@ plt.grid(True)
 plt.savefig('training_constraint_curve.png')
 plt.close()
 
-print("✅ Constraint plot saved as training_constraint_curve.png")
-print(f"🔍 Max constraint value (raw): {max(constraint_values):.12f}")
+print("Constraint plot saved as training_constraint_curve.png")
+print(f"Max constraint value (raw): {max(constraint_values):.12f}")
 
 epsilon = max(constraint_values)
 if epsilon < 0:
     epsilon = 0.0
 
-print(f"📐 Final epsilon = {epsilon:.12f}")
+print(f"Final epsilon = {epsilon:.12f}")

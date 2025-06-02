@@ -70,7 +70,7 @@ for trial in range(1, TRIAL_TIMES + 1):
 
     success = (
         not has_warning and
-        "✅ Training judged successful." in result.stdout
+        "Training judged successful." in result.stdout
     )
 
     if success:
