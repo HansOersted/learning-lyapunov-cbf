@@ -31,11 +31,11 @@ monotonic_decreasing = all(x > y for x, y in zip(selected_losses[:-1], selected_
 satisfies_final_threshold = loss_history[-1] <= final_threshold
 
 # Output results
-print(f"Initial loss: {loss_history[0]:.6f}")
-print(f"Final loss:   {loss_history[-1]:.6f}")
+# print(f"Initial loss: {loss_history[0]:.6f}")
+# print(f"Final loss:   {loss_history[-1]:.6f}")
+# print(f"Check indices: {check_indices}")
+# print(f"Selected losses: {selected_losses}")
 print(f"Final/Initial ratio: {ratio:.6f} (threshold: {expected_ratio})")
-print(f"Check indices: {check_indices}")
-print(f"Selected losses: {selected_losses}")
 print(f"Is strictly decreasing over selected {check_N} points? {'Yes' if monotonic_decreasing else 'No'}")
 print(f"Is final loss below threshold {final_threshold}? {'Yes' if satisfies_final_threshold else 'No'}")
 
