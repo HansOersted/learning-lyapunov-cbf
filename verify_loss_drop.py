@@ -45,6 +45,12 @@ else:
 print(f"Is non-increasing over selected {check_N} points? {'Yes' if non_increasing else 'No'}")
 print(f"Is final loss below threshold {final_threshold}? {'Yes' if satisfies_final_threshold else 'No'}")
 
+if loss_history[0] == 0.0:
+    print("🎉 Converge at the beginning! So lucky!")
+
+if loss_history[-1] == 0.0:
+    print("🎉 Congratulations! Perfect training with 0.0 loss!")
+
 if satisfies_ratio and non_increasing and satisfies_final_threshold:
     print("✅ Training judged successful.")
 else:
