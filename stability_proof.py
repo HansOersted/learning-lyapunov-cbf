@@ -124,14 +124,15 @@ for epoch in range(num_epochs):
         dL1 += grad_hidden1 @ e.T
         db1 += grad_hidden1
 
-    # update the gradients
+    # update the gradients except for the last epoch
     scale = length
-    L1 -= learning_rate * dL1 / scale
-    b1 -= learning_rate * db1 / scale
-    L2 -= learning_rate * dL2 / scale
-    b2 -= learning_rate * db2 / scale
-    L_out -= learning_rate * dL_out / scale
-    b_out -= learning_rate * db_out / scale
+    if epoch <= num_epochs - 2:
+        L1 -= learning_rate * dL1 / scale
+        b1 -= learning_rate * db1 / scale
+        L2 -= learning_rate * dL2 / scale
+        b2 -= learning_rate * db2 / scale
+        L_out -= learning_rate * dL_out / scale
+        b_out -= learning_rate * db_out / scale
 
     loss_history[epoch] = float(total_loss_clean)
     constraint_history[epoch] = constraint.item()
