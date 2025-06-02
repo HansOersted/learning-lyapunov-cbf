@@ -1,9 +1,9 @@
 import numpy as np
 import os
 
-expected_ratio = 0.2  # Expected ratio of final loss to initial loss
+expected_ratio = 0.01  # Expected ratio of final loss to initial loss
 N_check = 10          # Number of evenly spaced points to check
-final_threshold = 8.0 # Maximum acceptable final loss
+final_threshold = 1.0 # Maximum acceptable final loss
 
 # Load loss history
 if os.path.exists('loss_history.npy'):
