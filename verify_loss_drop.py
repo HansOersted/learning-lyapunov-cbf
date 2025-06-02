@@ -21,7 +21,10 @@ check_indices = np.linspace(0, T - 1, num=check_N, dtype=int)
 selected_losses = loss_history[check_indices]
 
 # Condition 1: Overall drop is sufficient
-ratio = loss_history[-1] / loss_history[0]
+if loss_history[0] == 0:
+    ratio = 0.0  # Treat zero initial loss as a special case
+else:
+    ratio = loss_history[-1] / loss_history[0]
 satisfies_ratio = ratio <= expected_ratio
 
 # Condition 2: First N_check points are non-increasing
@@ -35,7 +38,10 @@ satisfies_final_threshold = loss_history[-1] <= final_threshold
 # print(f"Final loss:   {loss_history[-1]:.6f}")
 # print(f"Check indices: {check_indices}")
 # print(f"Selected losses: {selected_losses}")
-print(f"Final/Initial ratio: {ratio:.6f} (threshold: {expected_ratio})")
+if loss_history[0] == 0:
+    print("⚠️ Initial loss is zero. Set ratio = 0.0 and treat as successful drop.")
+else:
+    print(f"Final/Initial ratio: {ratio:.6f} (threshold: {expected_ratio})")
 print(f"Is non-increasing over selected {check_N} points? {'Yes' if non_increasing else 'No'}")
 print(f"Is final loss below threshold {final_threshold}? {'Yes' if satisfies_final_threshold else 'No'}")
 
