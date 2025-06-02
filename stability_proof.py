@@ -61,10 +61,10 @@ for epoch in range(num_epochs):
     db_out = np.zeros_like(b_out)
 
     for t in range(length):
-        de = E_interested[t, :].reshape(-1, 1)
+        e = E_interested[t, :].reshape(-1, 1)
         dde = dE_interested[t, :].reshape(-1, 1)
 
-        hidden1 = np.maximum(0, L1 @ de + b1)
+        hidden1 = np.maximum(0, L1 @ e + b1)
         hidden2 = np.maximum(0, L2 @ hidden1 + b2)
 
         L_flat = L_out @ hidden2 + b_out
@@ -86,7 +86,7 @@ for epoch in range(num_epochs):
         if np.isnan(A).any():
             warnings.warn("A contains NaN values!")
 
-        constraint = dde.T @ A @ de + de.T @ A @ dde + lambda_val * de.T @ A @ de + gamma
+        constraint = dde.T @ A @ e + e.T @ A @ dde + lambda_val * e.T @ A @ e + gamma
         constraint_clean = constraint - gamma
 
         if epoch == 0:
@@ -99,9 +99,9 @@ for epoch in range(num_epochs):
         total_loss_clean += loss_clean
 
         if constraint_violation > 0:
-            A1, B1 = dde.T, de
-            A2, B2 = de.T, dde
-            A3, B3 = de.T, de
+            A1, B1 = dde.T, e
+            A2, B2 = e.T, dde
+            A3, B3 = e.T, e
 
             grad_constraint = (A1.T @ B1.T + B1 @ A1) @ L_pred \
                             + (A2.T @ B2.T + B2 @ A2) @ L_pred \
@@ -121,7 +121,7 @@ for epoch in range(num_epochs):
         db2 += grad_hidden2
 
         grad_hidden1 = (L2.T @ grad_hidden2) * (hidden1 > 0)
-        dL1 += grad_hidden1 @ de.T
+        dL1 += grad_hidden1 @ e.T
         db1 += grad_hidden1
 
     # update the gradients
