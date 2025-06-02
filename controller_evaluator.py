@@ -76,6 +76,14 @@ for trial in range(1, TRIAL_TIMES + 1):
 
     if success:
         print("🎉 Training accepted. Exiting loop.")
+        # Run epsilon_estimation.py
+        print("📐 Estimating epsilon using epsilon_estimation.py...")
+        epsilon_result = subprocess.run(
+            [sys.executable, "epsilon_estimation.py"],
+            capture_output=True,
+            text=True
+        )
+        print(epsilon_result.stdout)
         break
     else:
         print("🔁 Training not accepted. Trying again...")
