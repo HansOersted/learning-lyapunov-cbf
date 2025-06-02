@@ -6,6 +6,7 @@ matplotlib.use('Agg')
 
 TRIAL_TIMES = 100
 STABILITY_SCRIPT = 'stability_proof.py'
+VERIFY_LOSS_SCRIPT = 'verify_loss_drop.py'
 NPZ_FILE = 'training_data_uav.npz'
 
 if not os.path.exists(NPZ_FILE):
@@ -47,11 +48,37 @@ for trial in range(1, TRIAL_TIMES + 1):
     process.wait()
     stderr_output = process.stderr.read()
 
-    if stderr_output.strip():
+    # Check for warning output
+    has_warning = bool(stderr_output.strip())
+    if has_warning:
         print("⚠️  Warnings or errors detected:")
         print(stderr_output)
+        print("🔁 Skipping verification. Retrying...")
+        continue
     else:
-        print("✅ No warnings. Training succeeded.")
+        print("✅ No warnings.")
+
+    # 🧪 Run verify_loss_drop.py to check convergence
+    print("🔍 Verifying loss convergence...")
+    result = subprocess.run(
+        [sys.executable, VERIFY_LOSS_SCRIPT],
+        capture_output=True,
+        text=True
+    )
+    print(result.stdout)
+    if result.stderr.strip():
+        print("⚠️ Error during verification:", result.stderr.strip())
+
+    success = (
+        not has_warning and
+        "✅ Training judged successful." in result.stdout
+    )
+
+    if success:
+        print("🎉 Training accepted. Exiting loop.")
         break
+    else:
+        print("🔁 Training not accepted. Trying again...")
+
 else:
-    print(f"❌ {STABILITY_SCRIPT} gave warnings {TRIAL_TIMES} times. Aborting.")
+    print(f"❌ {STABILITY_SCRIPT} failed all {TRIAL_TIMES} attempts.")
