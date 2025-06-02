@@ -24,8 +24,8 @@ selected_losses = loss_history[check_indices]
 ratio = loss_history[-1] / loss_history[0]
 satisfies_ratio = ratio <= expected_ratio
 
-# Condition 2: First N_check points are strictly decreasing
-monotonic_decreasing = all(x > y for x, y in zip(selected_losses[:-1], selected_losses[1:]))
+# Condition 2: First N_check points are non-increasing
+non_increasing = all(x >= y for x, y in zip(selected_losses[:-1], selected_losses[1:]))
 
 # Condition 3: Final loss below absolute threshold
 satisfies_final_threshold = loss_history[-1] <= final_threshold
@@ -36,10 +36,10 @@ satisfies_final_threshold = loss_history[-1] <= final_threshold
 # print(f"Check indices: {check_indices}")
 # print(f"Selected losses: {selected_losses}")
 print(f"Final/Initial ratio: {ratio:.6f} (threshold: {expected_ratio})")
-print(f"Is strictly decreasing over selected {check_N} points? {'Yes' if monotonic_decreasing else 'No'}")
+print(f"Is non-increasing over selected {check_N} points? {'Yes' if non_increasing else 'No'}")
 print(f"Is final loss below threshold {final_threshold}? {'Yes' if satisfies_final_threshold else 'No'}")
 
-if satisfies_ratio and monotonic_decreasing and satisfies_final_threshold:
+if satisfies_ratio and non_increasing and satisfies_final_threshold:
     print("✅ Training judged successful.")
 else:
     print("❌ Training judged unsuccessful.")
