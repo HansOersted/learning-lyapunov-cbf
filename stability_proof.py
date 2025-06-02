@@ -62,7 +62,7 @@ for epoch in range(num_epochs):
 
     for t in range(length):
         e = E_interested[t, :].reshape(-1, 1)
-        dde = dE_interested[t, :].reshape(-1, 1)
+        de = dE_interested[t, :].reshape(-1, 1)
 
         hidden1 = np.maximum(0, L1 @ e + b1)
         hidden2 = np.maximum(0, L2 @ hidden1 + b2)
@@ -86,7 +86,7 @@ for epoch in range(num_epochs):
         if np.isnan(A).any():
             warnings.warn("A contains NaN values!")
 
-        constraint = dde.T @ A @ e + e.T @ A @ dde + lambda_val * e.T @ A @ e + gamma
+        constraint = de.T @ A @ e + e.T @ A @ de + lambda_val * e.T @ A @ e + gamma
         constraint_clean = constraint - gamma
 
         if epoch == 0:
@@ -99,8 +99,8 @@ for epoch in range(num_epochs):
         total_loss_clean += loss_clean
 
         if constraint_violation > 0:
-            A1, B1 = dde.T, e
-            A2, B2 = e.T, dde
+            A1, B1 = de.T, e
+            A2, B2 = e.T, de
             A3, B3 = e.T, e
 
             grad_constraint = (A1.T @ B1.T + B1 @ A1) @ L_pred \
