@@ -14,14 +14,18 @@ else:
     raise FileNotFoundError("Neither 'loss_history.npy' nor 'loss_history.txt' was found.")
 
 loss_history = loss_history.flatten()
+T = len(loss_history)
+
+check_N = min(N_check, T)
+check_indices = np.linspace(0, T - 1, num=check_N, dtype=int)
+selected_losses = loss_history[check_indices]
 
 # Condition 1: Overall drop is sufficient
 ratio = loss_history[-1] / loss_history[0]
 satisfies_ratio = ratio <= expected_ratio
 
 # Condition 2: First N_check points are strictly decreasing
-check_N = min(N_check, len(loss_history))
-monotonic_decreasing = all(x > y for x, y in zip(loss_history[:check_N-1], loss_history[1:check_N]))
+monotonic_decreasing = all(x > y for x, y in zip(selected_losses[:-1], selected_losses[1:]))
 
 # Condition 3: Final loss below absolute threshold
 satisfies_final_threshold = loss_history[-1] <= final_threshold
@@ -30,7 +34,9 @@ satisfies_final_threshold = loss_history[-1] <= final_threshold
 print(f"Initial loss: {loss_history[0]:.6f}")
 print(f"Final loss:   {loss_history[-1]:.6f}")
 print(f"Final/Initial ratio: {ratio:.6f} (threshold: {expected_ratio})")
-print(f"Is strictly decreasing in first {check_N} points? {'Yes' if monotonic_decreasing else 'No'}")
+print(f"Check indices: {check_indices}")
+print(f"Selected losses: {selected_losses}")
+print(f"Is strictly decreasing over selected {check_N} points? {'Yes' if monotonic_decreasing else 'No'}")
 print(f"Is final loss below threshold {final_threshold}? {'Yes' if satisfies_final_threshold else 'No'}")
 
 if satisfies_ratio and monotonic_decreasing and satisfies_final_threshold:
