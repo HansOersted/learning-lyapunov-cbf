@@ -19,6 +19,8 @@ else:
         'constraint_last_epoch.png',
         'lyapunov_surface.png',
         'loss_history.png',
+        'final_model_weights.npz',
+        'training_constraint_curve.png',
         'final_model_weights.npz'
     ]
 
