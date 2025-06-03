@@ -21,7 +21,13 @@ else:
         'lyapunov_surface.png',
         'loss_history.png',
         'final_model_weights.npz',
-        'training_constraint_curve.png'
+        'training_constraint_curve.png',
+        'lyapunov_training_report.aux',
+        'lyapunov_training_report.fdb_latexmk',
+        'lyapunov_training_report.fls',
+        'lyapunov_training_report.log',
+        'lyapunov_training_report.pdf',
+        'lyapunov_training_report.synctex.gz'
     ]
 
     for fname in OUTPUT_FILES:
