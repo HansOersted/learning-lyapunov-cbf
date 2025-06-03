@@ -26,10 +26,11 @@ E_interested = np.column_stack((e_interested, de_interested))
 dE_interested = np.column_stack((de_interested, dde_interested))
 
 constraint_values = []
-for de_row, dde_row in zip(E_interested, dE_interested):
-    de = de_row.reshape(-1, 1)
-    dde = dde_row.reshape(-1, 1)
-    c = (dde.T @ A @ de + de.T @ A @ dde + lambda_val * de.T @ A @ de).item()
+
+for t in range(len(e_interested)):
+    e = E_interested[t, :].reshape(-1, 1)
+    de = dE_interested[t, :].reshape(-1, 1)
+    c = (de.T @ A @ e + e.T @ A @ de + lambda_val * e.T @ A @ e).item()
     constraint_values.append(c)
 
 # plot constraints
