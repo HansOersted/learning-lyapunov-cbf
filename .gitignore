@@ -1,3 +1,9 @@
 *.png
 *.npz
 *.npy
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.pdf
+*.synctex.gz

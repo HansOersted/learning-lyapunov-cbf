@@ -1,0 +1,53 @@
+
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{datetime}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Lyapunov Training Report}
+\lhead{}
+\rfoot{Page \thepage}
+
+\title{Lyapunov Function Training Report}
+\author{}
+\date{\today\ at \currenttime}
+
+\begin{document}
+\maketitle
+
+\section*{1. Tracking Error History (skipped)}
+% \includegraphics[width=0.85\textwidth]{tracking_error_history.png}
+
+\section*{2. Training Summary}
+\begin{itemize}
+  \item Lyapunov candidate training completed.
+  \item Final loss below threshold.
+\end{itemize}
+\includegraphics[width=0.75\textwidth]{loss_history.png}
+
+\section*{3. Final Lyapunov Form}
+Let $V(e) = e^T A e$ be the Lyapunov function candidate. \\
+The final learned matrices:
+\begin{verbatim}
+L = [0.72  0.00]
+    [0.35  0.81]
+
+A = L @ L.T
+\end{verbatim}
+
+\section*{4. Lyapunov Surface}
+\includegraphics[width=0.85\textwidth]{lyapunov_surface.png}
+
+\section*{5. Final Constraint Inequality}
+\begin{verbatim}
+dV + lambda * V <= epsilon
+lambda = 0.1, epsilon = 0.0567
+\end{verbatim}
+
+\section*{6. Constraint Curve}
+\includegraphics[width=0.85\textwidth]{training_constraint_curve.png}
+
+\end{document}
