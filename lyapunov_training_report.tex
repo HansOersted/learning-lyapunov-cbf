@@ -63,17 +63,16 @@ A = L L^\top,
 where $L$ is the Cholesky factor.
 
 The final learned matrices:
-\begin{verbatim}
-L = 
-    [2.08  0.00]
-    [-0.09  0.78]
-
-A = 
-    [4.32  -0.19]
-    [-0.19  0.62]
-
-A = L @ L.T
-\end{verbatim}
+\begin{align}
+L &= \begin{bmatrix}
+1.09 & 0.00 \\
+-0.08 & 0.58 \\
+\end{bmatrix}, \\
+A &= \begin{bmatrix}
+1.20 & -0.08 \\
+-0.08 & 0.34 \\
+\end{bmatrix}.
+\end{align}
 
 \section*{4. Lyapunov Surface}
 \includegraphics[width=0.85\textwidth]{lyapunov_surface.png}
@@ -81,7 +80,7 @@ A = L @ L.T
 \section*{5. Final Constraint Inequality}
 \begin{verbatim}
 dV + lambda * V <= epsilon
-lambda = 0.1, epsilon = 3.0762\end{verbatim}
+lambda = 0.1, epsilon = 0.6337\end{verbatim}
 
 \section*{6. Constraint Curve}
 \includegraphics[width=0.85\textwidth]{training_constraint_curve.png}
