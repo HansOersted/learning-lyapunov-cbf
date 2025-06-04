@@ -150,7 +150,7 @@ for epoch in range(num_epochs):
         print("A =\n", A, flush=True)
         print("Eigenvalues of A:", np.linalg.eigvals(A), flush=True)
 
-fig = plt.figure(figsize=(5.5, 2.5))  # 控制宽度和高度
+fig = plt.figure(figsize=(5.5, 2.5))
 plt.plot(loss_history, linewidth=1.5)
 plt.xlabel(r"Epoch")
 plt.ylabel(r"Loss")

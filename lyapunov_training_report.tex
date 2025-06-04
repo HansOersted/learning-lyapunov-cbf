@@ -43,7 +43,25 @@ Lyapunov candidate training completed.
 \end{center}
 
 \section*{3. Final Lyapunov Form}
-Let $V(e) = e^T A e$ be the Lyapunov function candidate. \\
+The Lyapunov function ($V$) is synthesized based on the Cholesky factorization:
+
+\begin{equation}
+V = 
+\begin{bmatrix}
+e & \dot{e}
+\end{bmatrix}
+A
+\begin{bmatrix}
+e \\
+\dot{e}
+\end{bmatrix},
+\end{equation}
+
+\begin{equation}
+A = L L^\top,
+\end{equation}
+where $L$ is the Cholesky factor.
+
 The final learned matrices:
 \begin{verbatim}
 L = 
