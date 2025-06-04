@@ -1,7 +1,6 @@
 import numpy as np
 import re
 
-# 读取 L 和 A
 data = np.load("final_model_weights.npz")
 L = data['L']
 A = data['A']
