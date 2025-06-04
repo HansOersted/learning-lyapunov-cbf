@@ -17,14 +17,14 @@
 
 \begin{document}
 \maketitle
+\thispagestyle{fancy}
 
 \section*{1. Tracking Error History}
 \includegraphics[width=0.85\textwidth]{tracking_error_history.png}
 
 \section*{2. Training Summary}
 \begin{itemize}
-  \item Lyapunov candidate training completed.
-  \item Final loss below threshold.
+  \item Lyapunov candidate training completed. Final loss below threshold.
 \end{itemize}
 \includegraphics[width=0.75\textwidth]{loss_history.png}
 
@@ -33,12 +33,12 @@ Let $V(e) = e^T A e$ be the Lyapunov function candidate. \\
 The final learned matrices:
 \begin{verbatim}
 L = 
-    [0.73  0.00]
-    [0.01  0.66]
+    [1.20  0.00]
+    [-0.15  0.81]
 
 A = 
-    [0.53  0.01]
-    [0.01  0.43]
+    [1.44  -0.18]
+    [-0.18  0.68]
 
 A = L @ L.T
 \end{verbatim}
@@ -49,7 +49,7 @@ A = L @ L.T
 \section*{5. Final Constraint Inequality}
 \begin{verbatim}
 dV + lambda * V <= epsilon
-lambda = 0.1, epsilon = 0.0317\end{verbatim}
+lambda = 0.1, epsilon = 0.6516\end{verbatim}
 
 \section*{6. Constraint Curve}
 \includegraphics[width=0.85\textwidth]{training_constraint_curve.png}
