@@ -28,4 +28,4 @@ plt.tight_layout(pad=0.5)
 plt.savefig("tracking_error_history.pdf", format="pdf", bbox_inches='tight')
 plt.close()
 
-print("tracking_error_history.png saved.")
+print("tracking_error_history.pdf saved.")
