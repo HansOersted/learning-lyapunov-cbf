@@ -51,3 +51,6 @@ if epsilon < 0:
     epsilon = 0.0
 
 print(f"Final epsilon = {epsilon:.12f}")
+
+with open('epsilon.txt', 'w') as f:
+    f.write(str(epsilon))
