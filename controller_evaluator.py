@@ -28,6 +28,7 @@ else:
         'lyapunov_training_report.log',
         'lyapunov_training_report.pdf',
         'tracking_error_history.pdf',
+        'loss_history.pdf',
         'lyapunov_training_report.synctex.gz'
     ]
 

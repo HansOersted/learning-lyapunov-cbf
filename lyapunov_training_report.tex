@@ -35,19 +35,20 @@ Lyapunov candidate training completed.
   \item  Loss is decreasing.
   \item  Final loss below threshold.
 \end{itemize}
-\includegraphics[width=0.75\textwidth]{loss_history.png}
+
+\includegraphics[width=0.75\textwidth]{loss_history.pdf}
 
 \section*{3. Final Lyapunov Form}
 Let $V(e) = e^T A e$ be the Lyapunov function candidate. \\
 The final learned matrices:
 \begin{verbatim}
 L = 
-    [1.20  0.00]
-    [-0.15  0.81]
+    [2.08  0.00]
+    [-0.09  0.78]
 
 A = 
-    [1.44  -0.18]
-    [-0.18  0.68]
+    [4.32  -0.19]
+    [-0.19  0.62]
 
 A = L @ L.T
 \end{verbatim}
@@ -58,7 +59,7 @@ A = L @ L.T
 \section*{5. Final Constraint Inequality}
 \begin{verbatim}
 dV + lambda * V <= epsilon
-lambda = 0.1, epsilon = 0.6516\end{verbatim}
+lambda = 0.1, epsilon = 3.0762\end{verbatim}
 
 \section*{6. Constraint Curve}
 \includegraphics[width=0.85\textwidth]{training_constraint_curve.png}

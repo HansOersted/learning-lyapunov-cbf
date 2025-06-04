@@ -1,5 +1,8 @@
 import warnings
 import matplotlib
+matplotlib.rcParams['text.usetex'] = True
+matplotlib.rcParams['font.family'] = 'serif'
+matplotlib.rcParams['font.size'] = 12
 import matplotlib.pyplot as plt
 import os
 
@@ -147,13 +150,14 @@ for epoch in range(num_epochs):
         print("A =\n", A, flush=True)
         print("Eigenvalues of A:", np.linalg.eigvals(A), flush=True)
 
-fig = plt.figure()
-plt.plot(loss_history, linewidth=2)
-plt.xlabel('Epoch')
-plt.ylabel('Loss')
-plt.title('Training Loss (Clean)')
-plt.grid()
-plt.savefig("loss_history.png")
+fig = plt.figure(figsize=(5.5, 2.5))  # 控制宽度和高度
+plt.plot(loss_history, linewidth=1.5)
+plt.xlabel(r"Epoch")
+plt.ylabel(r"Loss")
+plt.title(r"Training Loss History")
+plt.grid(True)
+plt.tight_layout(pad=0.5)
+plt.savefig("loss_history.pdf", format="pdf", bbox_inches='tight')
 plt.close(fig)
 
 fig = plt.figure()
