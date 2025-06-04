@@ -24,16 +24,16 @@ with open("epsilon.txt", "r") as f:
     epsilon_val = float(f.read().strip())
 
 lambda_val = 0.1
-ineq_block = f"""dV + lambda * V <= epsilon
-lambda = {lambda_val}, epsilon = {epsilon_val:.4f}"""
+
 
 with open("lyapunov_training_report.tex", "r") as f:
     content = f.read()
 
 content = re.sub(r"\\begin{align}[\s\S]+?\\end{align}", lambda _: latex_block, content)
 
-ineq_pattern = r"dV \+ lambda \* V <= epsilon\nlambda = .*?(?=\\end\{verbatim\})"
-content = re.sub(ineq_pattern, ineq_block, content, flags=re.DOTALL)
+ineq_pattern = r"where\s*\$\\lambda\s*=\s*.*?\$,\s*\$\\epsilon\s*=\s*.*?\$\."
+replacement_text = f"where $\\lambda = {lambda_val}$, $\\epsilon = {epsilon_val:.4f}$."
+content = re.sub(ineq_pattern, lambda _: replacement_text, content)
 
 with open("lyapunov_training_report.tex", "w") as f:
     f.write(content)
