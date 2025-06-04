@@ -22,7 +22,7 @@ A = L @ L.T
 
 with open("epsilon.txt", "r") as f:
     epsilon_line = f.read().strip()
-    epsilon_val = float(epsilon_line.split('=')[-1].strip())
+    epsilon_val = float(epsilon_line)
 
 lambda_val = 0.1
 ineq_block = f"""dV + lambda * V <= epsilon
@@ -33,10 +33,10 @@ with open("lyapunov_training_report.tex", "r") as f:
 
 content = re.sub(r"L = [\s\S]+?A = L @ L\.T", latex_block.strip(), content)
 
-content = re.sub(r"dV \+ lambda \* V <= epsilon\nlambda = .*?, epsilon = .*?",
-                 ineq_block.strip(), content)
+ineq_pattern = r"dV \+ lambda \* V <= epsilon\nlambda = .*?(?=\\end\{verbatim\})"
+content = re.sub(ineq_pattern, ineq_block, content, flags=re.DOTALL)
 
 with open("lyapunov_training_report.tex", "w") as f:
     f.write(content)
 
-print("✅ LaTeX updated")
+print("LaTeX updated")
