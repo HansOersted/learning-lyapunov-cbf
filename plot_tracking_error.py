@@ -25,7 +25,7 @@ plt.title(r"Tracking Error History", fontsize=13)
 plt.grid(True)
 plt.tight_layout(pad=0.5)
 
-plt.savefig("tracking_error_history.png", bbox_inches='tight')
+plt.savefig("tracking_error_history.pdf", format="pdf", bbox_inches='tight')
 plt.close()
 
 print("tracking_error_history.png saved.")
