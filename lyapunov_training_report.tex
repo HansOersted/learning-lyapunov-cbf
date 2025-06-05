@@ -85,10 +85,13 @@ The Lyapunov surface, Formula~\eqref{eq:lyapunov_definition}, is visualized in t
 The final constraint inequality is given by:
 \begin{equation}
 \dot{V} + \lambda V \leq \epsilon,
+\label{eq:constraint_definition}
 \end{equation}
 where $\lambda = 0.1$, $\epsilon = 0.0430$.
 
 \section*{6. Constraint Curve}
+The left side of Formula~\eqref{eq:constraint_definition} is depicted using all the below training data. The curve should stay beneath the threshold $\epsilon$.
+
 \begin{center}
 \includegraphics[width=0.85\textwidth]{training_constraint_curve.pdf}
 \end{center}
