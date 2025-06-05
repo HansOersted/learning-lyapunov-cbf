@@ -33,22 +33,31 @@ for t in range(len(e_interested)):
     c = (de.T @ A @ e + e.T @ A @ de + lambda_val * e.T @ A @ e).item()
     constraint_values.append(c)
 
-# plot constraints
-plt.figure()
-plt.plot(range(len(constraint_values)), constraint_values, linewidth=2)
-plt.xlabel('Training Sample Index')
-plt.ylabel('Constraint Value')
-plt.title('Constraints from Training Data')
-plt.grid(True)
-plt.savefig('training_constraint_curve.png')
-plt.close()
-
-print("Constraint plot saved as training_constraint_curve.png")
-print(f"Max constraint value (raw): {max(constraint_values):.12f}")
-
 epsilon = max(constraint_values)
 if epsilon < 0:
     epsilon = 0.0
+
+import matplotlib
+matplotlib.rcParams['text.usetex'] = True
+matplotlib.rcParams['font.family'] = 'serif'
+matplotlib.rcParams['font.size'] = 12
+
+# plot constraints
+fig = plt.figure(figsize=(6.5, 2.8))
+plt.plot(range(len(constraint_values)), constraint_values, linewidth=1.8, label=r"$\dot{V} + \lambda V$")
+plt.xlabel('Training Sample Index')
+plt.ylabel(r"$\dot{V} + \lambda V$")
+plt.title('Constraints from Training Data')
+plt.grid(True)
+
+plt.axhline(y=epsilon, color='r', linestyle='--', linewidth=1.5, label=r"$\epsilon$")
+plt.text(len(constraint_values) * 0.8, epsilon + 0.02, rf"$\epsilon = {epsilon:.4f}$", color='r')
+
+plt.tight_layout()
+plt.savefig('training_constraint_curve.pdf', format='pdf', bbox_inches='tight')
+plt.close(fig)
+
+print("Constraint plot saved as training_constraint_curve.pdf")
 
 print(f"Final epsilon = {epsilon:.12f}")
 
