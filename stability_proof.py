@@ -190,12 +190,12 @@ for i in range(e.shape[0]):
         vec = np.array([[e[i, j]], [de[i, j]]])
         Lyap[i, j] = (vec.T @ A_plot @ vec).item()
 
-fig = plt.figure(figsize=(8, 5.5))
+fig = plt.figure(figsize=(10, 6.5))
 ax = fig.add_subplot(111, projection='3d')
 
 surf = ax.plot_surface(
     e, de, Lyap,
-    cmap='inferno',      # viridis, plasma, cividis
+    cmap='plasma',      # inferno, viridis, plasma, cividis
     edgecolor='none',
     antialiased=True
 )
@@ -203,7 +203,7 @@ surf = ax.plot_surface(
 ax.set_xlabel(r"$e$")
 ax.set_ylabel(r"$\dot{e}$")
 ax.set_zlabel(r"$V(e, \dot{e})$")
-ax.set_title(r"Lyapunov Function Surface $(\lambda = {:.2f})$".format(lambda_val), fontsize=13)
+ax.set_title(r"Lyapunov Function Surface $(\lambda = {:.2f})$".format(lambda_val), fontsize=18)
 
 cbar = fig.colorbar(surf, ax=ax, shrink=0.7, pad=0.15, aspect=20)
 cbar.set_label(r"$V(e, \dot{e})$")
