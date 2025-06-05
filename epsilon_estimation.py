@@ -50,8 +50,10 @@ plt.ylabel(r"$\dot{V} + \lambda V$")
 plt.title('Constraints from Training Data')
 plt.grid(True)
 
-plt.axhline(y=epsilon, color='r', linestyle='--', linewidth=1.5, label=r"$\epsilon$")
-plt.text(len(constraint_values) * 0.8, epsilon + 0.02, rf"$\epsilon = {epsilon:.4f}$", color='r')
+plt.axhline(y=epsilon, color='firebrick', linestyle='--', linewidth=1.5, label=r"$\epsilon$")
+plt.text(len(constraint_values) * 0.8, epsilon + 0.01, rf"$\epsilon = {epsilon:.4f}$", color='firebrick')
+
+plt.ylim(bottom=min(constraint_values) - 0.05, top=epsilon + 0.05)
 
 plt.tight_layout()
 plt.savefig('training_constraint_curve.pdf', format='pdf', bbox_inches='tight')
