@@ -178,6 +178,9 @@ plt.grid()
 plt.savefig("constraint_last_epoch.png")
 plt.close(fig)
 
+from mpl_toolkits.mplot3d import Axes3D
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+
 e, de = np.meshgrid(np.arange(-20, 21, 1), np.arange(-20, 21, 1))
 Lyap = np.zeros_like(e, dtype=float)
 A_plot = A_history[-1]
@@ -187,14 +190,27 @@ for i in range(e.shape[0]):
         vec = np.array([[e[i, j]], [de[i, j]]])
         Lyap[i, j] = (vec.T @ A_plot @ vec).item()
 
-fig = plt.figure()
+fig = plt.figure(figsize=(8, 5.5))
 ax = fig.add_subplot(111, projection='3d')
-ax.plot_surface(e, de, Lyap)
-ax.set_xlabel('e')
-ax.set_ylabel('de')
-ax.set_zlabel('V(e, de)')
-ax.set_title(f'Lyapunov Function (lambda = {lambda_val})')
-plt.savefig("lyapunov_surface.png")
+
+surf = ax.plot_surface(
+    e, de, Lyap,
+    cmap='inferno',      # viridis, plasma, cividis
+    edgecolor='none',
+    antialiased=True
+)
+
+ax.set_xlabel(r"$e$")
+ax.set_ylabel(r"$\dot{e}$")
+ax.set_zlabel(r"$V(e, \dot{e})$")
+ax.set_title(r"Lyapunov Function Surface $(\lambda = {:.2f})$".format(lambda_val), fontsize=13)
+
+cbar = fig.colorbar(surf, ax=ax, shrink=0.7, pad=0.15, aspect=20)
+cbar.set_label(r"$V(e, \dot{e})$")
+
+fig.subplots_adjust(left=0.05, right=0.88, top=0.95, bottom=0.05)
+
+plt.savefig("lyapunov_surface.pdf", format="pdf", bbox_inches='tight')
 plt.close(fig)
 
 np.save("loss_history.npy", loss_history)
