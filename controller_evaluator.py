@@ -18,10 +18,7 @@ else:
     OUTPUT_FILES = [
         'constraint_first_epoch.png',
         'constraint_last_epoch.png',
-        'lyapunov_surface.png',
-        'loss_history.png',
         'final_model_weights.npz',
-        'training_constraint_curve.png',
         'lyapunov_training_report.aux',
         'lyapunov_training_report.fdb_latexmk',
         'lyapunov_training_report.fls',
