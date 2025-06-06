@@ -67,5 +67,9 @@ To ensure full reproducibility:
 2. Run the training process:
 
 ```bash
-python controller_evaluator.py
+python run_pipeline.py
+```
+Then, compile
+```
+lyapunov_training_report.tex
 ```
