@@ -84,3 +84,23 @@ latexmk -pdf lyapunov_training_report.tex
 ```
 
 Finally, a Lyapunov candidate is found with a training report `lyapunov_training_report.pdf`.
+
+
+## 📸 Output Preview
+
+At the end of the pipeline, you'll get a beautiful auto-generated PDF report:
+
+👉 [lyapunov_training_report.pdf](https://github.com/user-attachments/files/20640749/lyapunov_training_report.pdf)
+
+It includes:
+
+- 📊 Tracking error history (input data)
+- 📉 Training loss curve
+- 🧮 Final Lyapunov function form
+- 🌄 3D Lyapunov surface plot
+- 📐 Final constraint inequality
+
+---
+
+No manual math. No stress. Just data → Lyapunov candidate.
+
