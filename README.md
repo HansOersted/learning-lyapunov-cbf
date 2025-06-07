@@ -1,8 +1,8 @@
 # Learning Lyapunov Functions from Data
 
 > “My professor asked me to find a Lyapunov candidate.  
-> I spent the whole afternoon and missed my date at Tivoli (yes, the amusement park in Copenhagen).  
-> Now she says we’re over.”  
+> I spent the whole afternoon and missed my date at Tivoli (amusement park in Copenhagen).  
+> Now she says we’re over 💔.”  
 > — Thomas, heartbroken but now stable
 
 From today on, no one has to choose between **love** and **Lyapunov**.
