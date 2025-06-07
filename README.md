@@ -7,6 +7,7 @@
 
 What used to take a heartbreak 💔 — now takes one command in this repository.
 
+<img src="https://github.com/user-attachments/assets/fbbd9abd-ead4-4227-80d2-64125da81efc" alt="Lyapunov Banner" width="80%">
 
 ## 💡 What It Does
 
