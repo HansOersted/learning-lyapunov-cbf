@@ -17,15 +17,15 @@ And it even gives us a PDF report automatically!
 
 <div>&nbsp;&nbsp;&nbsp;&nbsp;🧼 Whiteboard math?  
   
-&nbsp;&nbsp;&nbsp;&nbsp;Gone.</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Gone.</div>
 
 <div>&nbsp;&nbsp;&nbsp;&nbsp;🎯 Blind guessing?  
   
-&nbsp;&nbsp;&nbsp;&nbsp;Gone.</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Gone.</div>
 
 <div>&nbsp;&nbsp;&nbsp;&nbsp;💔 Romantic tragedy?  
   
-&nbsp;&nbsp;&nbsp;&nbsp;Completely avoidable.</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Completely avoidable.</div>
 
 ## Environment
 
