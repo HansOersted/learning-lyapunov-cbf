@@ -40,14 +40,6 @@ To run this project successfully, make sure you have the following:
 pip install -r requirements.txt
 ```
 
-The `requirements.txt` contains:
-
-```
-numpy
-matplotlib
-scipy
-```
-
 ### 📄 LaTeX
 
 To compile the final report, you need a LaTeX engine:
