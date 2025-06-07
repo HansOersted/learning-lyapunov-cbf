@@ -66,12 +66,12 @@ where $L$ is the Cholesky factor.
 The final learned matrices:
 \begin{align}
 L &= \begin{bmatrix}
-0.69 & 0.00 \\
-0.00 & 0.69 \\
+0.72 & 0.00 \\
+-0.00 & 0.70 \\
 \end{bmatrix}, \\
 A &= \begin{bmatrix}
-0.48 & 0.00 \\
-0.00 & 0.48 \\
+0.52 & -0.00 \\
+-0.00 & 0.49 \\
 \end{bmatrix}.
 \end{align}
 
@@ -87,7 +87,7 @@ The final constraint inequality is given by:
 \dot{V} + \lambda V \leq \epsilon,
 \label{eq:constraint_definition}
 \end{equation}
-where $\lambda = 0.1$, $\epsilon = 0.0369$.
+where $\lambda = 0.1$, $\epsilon = 0.0424$.
 
 \section*{6. Constraint Curve}
 The left side of Formula~\eqref{eq:constraint_definition} is depicted using all the below training data. The curve should stay beneath the threshold $\epsilon$.

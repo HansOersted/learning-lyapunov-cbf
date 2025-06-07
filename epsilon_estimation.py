@@ -51,10 +51,10 @@ plt.title('Constraints from Training Data')
 plt.grid(True)
 
 plt.axhline(y=epsilon, color='firebrick', linestyle='--', linewidth=1.5, label=r"$\epsilon$")
-plt.text(len(constraint_values) * 0.8, epsilon + 0.01, rf"$\epsilon = {epsilon:.4f}$", color='firebrick')
 
 plt.ylim(bottom=min(constraint_values) - 0.05, top=epsilon + 0.05)
 
+plt.text(len(constraint_values) * 0.82, epsilon + 0.005, rf"$\epsilon = {epsilon:.4f}$", color='firebrick')
 plt.tight_layout()
 plt.savefig('training_constraint_curve.pdf', format='pdf', bbox_inches='tight')
 plt.close(fig)
