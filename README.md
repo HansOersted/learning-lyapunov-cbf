@@ -41,10 +41,46 @@ pip install -r requirements.txt
 
 ### 📄 LaTeX
 
-To compile the final report, you need a LaTeX engine:
+To compile the final report, you need a LaTeX engine and required packages:
 
 ```bash
-sudo apt install texlive-latex-base texlive-latex-extra texlive-fonts-recommended
+sudo apt install latexmk texlive-latex-base texlive-latex-extra texlive-fonts-recommended
 ```
 
+## Quick Start
+
+Once your environment is set up, find the Lyapunov candidate in 3 steps:
+
 ---
+
+### 1. *(Optional)* Load the tracking result
+
+*To beginners:*  
+**Skip this step!** The default tracking result is collected from the flight of a UAV simulator.
+
+*To advanced users:*  
+Replace with the interested tracking result for analysis.
+
+---
+
+### 2. Find the Lyapunov candidate
+
+Simply run and wait:
+
+```bash
+python3 run_pipeline.py
+```
+
+This will generate `lyapunov_training_report.tex` for the next step.
+
+---
+
+### 3. Generate the PDF report
+
+Compile `lyapunov_training_report.tex`:
+
+```bash
+latexmk -pdf lyapunov_training_report.tex
+```
+
+Finally, a Lyapunov candidate is found with a training report `lyapunov_training_report.pdf`.
