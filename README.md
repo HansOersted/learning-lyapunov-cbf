@@ -6,7 +6,7 @@
 > — Thomas, heartbroken but now stable
 
 From today on, no one has to choose between **love** and **Lyapunov**:  
-What used to take a heartbreak — now takes one command.
+What used to take a heartbreak 💔 — now takes one command.
 
 
 ## What It Does
