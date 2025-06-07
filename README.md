@@ -8,7 +8,7 @@
 What used to take a heartbreak 💔 — now takes one command in this repository.
 
 
-## What It Does
+## 💡 What It Does
 
 
 Given the tracking result, this repository automates the search for Lyapunov candidate.  
@@ -26,7 +26,7 @@ And it even gives us a PDF report automatically!
   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Completely avoidable.</div>
 
-## Environment
+## 🧪 Environment
 
 To run this project successfully, make sure you have the following:
 
@@ -47,7 +47,7 @@ To compile the final report, you need a LaTeX engine and required packages:
 sudo apt install latexmk texlive-latex-base texlive-latex-extra texlive-fonts-recommended
 ```
 
-## Quick Start
+## 🚀 Quick Start
 
 Once your environment is set up, find the Lyapunov candidate in 3 steps:
 
@@ -94,11 +94,11 @@ At the end of the pipeline, you'll get a beautiful auto-generated PDF report:
 
 It includes:
 
-- 📊 Tracking error history (input data)
-- 📉 Training loss curve
-- 🧮 Final Lyapunov function form
-- 🌄 3D Lyapunov surface plot
-- 📐 Final constraint inequality
+- Tracking error history (input data)
+- Training loss curve
+- Final Lyapunov function form
+- 3D Lyapunov surface plot
+- Final constraint inequality
 
 ---
 
