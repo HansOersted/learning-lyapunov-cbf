@@ -11,8 +11,10 @@ From today on, no one has to choose between **love** and **Lyapunov**.
 ## 💡 What It Does
 
 
-Given system trajectory data, this repository automates the search for Lyapunov candidate functions.  
-And it even gives us a PDF report automatically!
+Given the tracking result, this repository automates the search for Lyapunov candidate.  
+And it even gives us a PDF report automatically.
+
+What used to take a heartbreak — now takes one command.
 
 <div>&nbsp;&nbsp;&nbsp;&nbsp;🧼 Whiteboard math?  
   
@@ -25,13 +27,6 @@ And it even gives us a PDF report automatically!
 <div>&nbsp;&nbsp;&nbsp;&nbsp;💔 Romantic tragedy?  
   
 &nbsp;&nbsp;&nbsp;&nbsp;Completely avoidable.</div>
-
-## 🧠 Features
-
-- Trains a Lyapunov function using numerical constraints
-- Generates a full LaTeX `.pdf` report as certificate
-
-What used to take a PhD, a headache, and a heartbreak — now takes one command.
 
 ## 🧪 Environment
 
