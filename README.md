@@ -32,3 +32,34 @@ And it even gives us a PDF report automatically!
 - Generates a full LaTeX `.pdf` report as certificate
 
 What used to take a PhD, a headache, and a heartbreak — now takes one command.
+
+## 🧪 Environment
+
+To run this project successfully, make sure you have the following:
+
+### 🐍 Python
+
+- Python 3.8 or later
+- Install dependencies with:
+
+```bash
+pip install -r requirements.txt
+```
+
+The `requirements.txt` contains:
+
+```
+numpy
+matplotlib
+scipy
+```
+
+### 📄 LaTeX
+
+To compile the final report, you need a LaTeX engine:
+
+```bash
+sudo apt install texlive-latex-base texlive-latex-extra texlive-fonts-recommended
+```
+
+---
