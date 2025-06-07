@@ -30,7 +30,7 @@ And it even gives us a PDF report automatically!
 
 To run this project successfully, make sure you have the following:
 
-### 🐍 Python
+### Python
 
 - Python 3.8 or later
 - Install dependencies with:
@@ -39,7 +39,7 @@ To run this project successfully, make sure you have the following:
 pip install -r requirements.txt
 ```
 
-### 📄 LaTeX
+### LaTeX
 
 To compile the final report, you need a LaTeX engine and required packages:
 
