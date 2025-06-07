@@ -5,7 +5,7 @@
 > Now she says we’re over 💔.”  
 > — Thomas, heartbroken but now stable
 
-What used to take a heartbreak 💔 — now takes one command.
+What used to take a heartbreak 💔 — now takes one command in this repository.
 
 
 ## What It Does
