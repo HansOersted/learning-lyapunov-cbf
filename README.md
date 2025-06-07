@@ -5,7 +5,7 @@
 > Now she says we’re over 💔.”  
 > — Thomas, heartbroken but now stable
 
-From today on, no one has to choose between **love** and **Lyapunov**.  
+From today on, no one has to choose between love and **Lyapunov**:  
 What used to take a heartbreak — now takes one command.
 
 
@@ -13,7 +13,7 @@ What used to take a heartbreak — now takes one command.
 
 
 Given the tracking result, this repository automates the search for Lyapunov candidate.  
-And it even gives us a PDF report automatically.
+And it even gives us a PDF report automatically!
 
 <div>&nbsp;&nbsp;&nbsp;&nbsp;🧼 Whiteboard math?  
   
