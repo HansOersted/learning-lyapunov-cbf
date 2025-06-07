@@ -14,14 +14,17 @@ From today on, no one has to choose between **love** and **Lyapunov**.
 Given system trajectory data, this repository automates the search for Lyapunov candidate functions.  
 And it even gives us a PDF report automatically!
 
-Whiteboard math?  
-🧼 Gone.
+<div>&nbsp;&nbsp;&nbsp;&nbsp;🧼 Whiteboard math?  
+  
+&nbsp;&nbsp;&nbsp;&nbsp;Gone.</div>
 
-Blind guessing?  
-🎯 Gone.
+<div>&nbsp;&nbsp;&nbsp;&nbsp;🎯 Blind guessing?  
+  
+&nbsp;&nbsp;&nbsp;&nbsp;Gone.</div>
 
-Romantic tragedy?  
-💔 Completely avoidable.
+<div>&nbsp;&nbsp;&nbsp;&nbsp;💔 Romantic tragedy?  
+  
+&nbsp;&nbsp;&nbsp;&nbsp;Completely avoidable.</div>
 
 ## 🧠 Features
 
