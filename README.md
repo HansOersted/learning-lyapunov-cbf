@@ -15,8 +15,6 @@ What used to take a heartbreak — now takes one command.
 Given the tracking result, this repository automates the search for Lyapunov candidate.  
 And it even gives us a PDF report automatically.
 
-What used to take a heartbreak — now takes one command.
-
 <div>&nbsp;&nbsp;&nbsp;&nbsp;🧼 Whiteboard math?  
   
 &nbsp;&nbsp;&nbsp;&nbsp;Gone.</div>
