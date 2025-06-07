@@ -5,7 +5,6 @@
 > Now she says we’re over 💔.”  
 > — Thomas, heartbroken but now stable
 
-From today on, no one has to choose between **love** and **Lyapunov**:  
 What used to take a heartbreak 💔 — now takes one command.
 
 
