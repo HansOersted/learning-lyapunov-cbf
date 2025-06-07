@@ -54,7 +54,7 @@ Once your environment is set up, find the Lyapunov candidate in 3 steps:
 
 ---
 
-### 1. *(Optional)* Load the tracking result
+### *(Optional)* Step 1. Load the tracking result
 
 *To beginners:*  
 **Skip this step!** The default tracking result is collected from the flight of a UAV simulator.
@@ -64,7 +64,7 @@ Replace with the interested tracking result for analysis.
 
 ---
 
-### 2. Find the Lyapunov candidate
+### Step 2. Find the Lyapunov candidate
 
 Simply run and wait:
 
@@ -76,7 +76,7 @@ This will generate `lyapunov_training_report.tex` for the next step.
 
 ---
 
-### 3. Generate the PDF report
+### Step 3. Generate the PDF report
 
 Compile `lyapunov_training_report.tex`:
 
