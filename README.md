@@ -8,7 +8,7 @@
 From today on, no one has to choose between **love** and **Lyapunov**.
 
 
-## 💡 What It Does
+## What It Does
 
 
 Given the tracking result, this repository automates the search for Lyapunov candidate.  
@@ -28,7 +28,7 @@ What used to take a heartbreak — now takes one command.
   
 &nbsp;&nbsp;&nbsp;&nbsp;Completely avoidable.</div>
 
-## 🧪 Environment
+## Environment
 
 To run this project successfully, make sure you have the following:
 
