@@ -93,7 +93,7 @@ At the end of the pipeline, you'll get a beautiful auto-generated PDF report:
 
 👉 [lyapunov_training_report.pdf](https://github.com/user-attachments/files/20640749/lyapunov_training_report.pdf)
 
-<img src="https://github.com/user-attachments/assets/0ffeb331-cdf4-4c98-8448-808e62c272b8" width="20%"> <img src="https://github.com/user-attachments/assets/458dded4-a22e-4bf5-aa20-d2f7b4b0acf9" width="20%"> <img src="https://github.com/user-attachments/assets/4346b0da-e85b-494b-8a54-7a1ab9400154" width="20%">
+<img src="https://github.com/user-attachments/assets/0ffeb331-cdf4-4c98-8448-808e62c272b8" width="30%"> <img src="https://github.com/user-attachments/assets/458dded4-a22e-4bf5-aa20-d2f7b4b0acf9" width="30%"> <img src="https://github.com/user-attachments/assets/4346b0da-e85b-494b-8a54-7a1ab9400154" width="30%">
 
 It includes:
 - Tracking error history (input data)
