@@ -102,7 +102,26 @@ It includes:
 - 3D Lyapunov surface plot
 - Final constraint inequality
 
----
 
 No manual math. No stress. Just data → Lyapunov candidate.
 
+
+## 📚 Related Paper
+
+This repository accompanies our IROS 2025 submission:
+
+**[Towards Data-Driven Model-Free Safety-Critical Control](https://arxiv.org/abs/2506.06931)**  
+_Zhe Shen, Yitaek Kim, Christoffer Sloth, 2025_
+
+If you found this repository useful, consider citing our paper.
+
+
+### 📖 BibTeX
+
+```bibtex
+@article{lyapunov2025towards,
+  title={Towards Data-Driven Model-Free Safety-Critical Control},
+  author={Shen, Zhe and Kim, Yitaek and Sloth, Christoffer},
+  journal={arXiv preprint arXiv:2506.06931},
+  year={2025}
+}
