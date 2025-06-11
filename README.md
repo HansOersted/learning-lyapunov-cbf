@@ -48,6 +48,12 @@ To compile the final report, you need a LaTeX engine and required packages:
 sudo apt install -y texlive-full
 ```
 
+Alternatively, run 
+
+```
+sudo apt update && sudo apt install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra cm-super dvipng latexmk lmodern texlive-lang-cjk texlive-xetex texlive-luatex
+```
+
 ## 🚀 Quick Start
 
 Once your environment is set up, find the Lyapunov candidate in 3 steps:
