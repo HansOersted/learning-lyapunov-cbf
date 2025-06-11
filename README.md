@@ -45,7 +45,7 @@ pip install -r requirements.txt
 To compile the final report, you need a LaTeX engine and required packages:
 
 ```bash
-sudo apt install latexmk texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
+sudo apt install -y texlive-full
 ```
 
 ## 🚀 Quick Start
