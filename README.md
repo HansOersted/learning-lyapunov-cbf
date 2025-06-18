@@ -114,7 +114,7 @@ No manual math. No stress. Just data → Lyapunov candidate.
 
 ## 📚 Related Paper
 
-This repository accompanies our IROS 2025 submission:
+This repository accompanies our manuscript released on arXiv:
 
 **[Towards Data-Driven Model-Free Safety-Critical Control](https://arxiv.org/abs/2506.06931)**  
 _Zhe Shen, Yitaek Kim, Christoffer Sloth, 2025_
